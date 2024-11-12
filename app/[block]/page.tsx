@@ -58,7 +58,10 @@ export default function BlockPage({
         <Button
           isDisabled={isActive}
           className="w-full font-semibold"
-          onClick={() => startBlock(selectedBlock!)}
+          onClick={() => {
+            setActive(true);
+            startBlock(selectedBlock!);
+          }}
           color="primary"
         >
           start
