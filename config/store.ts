@@ -63,7 +63,7 @@ export const useStore = create<BlockStoreProps>()(
         selectedBlock?.history.push({ date: parsedDate, start: new Date() });
 
         const modifiedBlocks = blocks.map((e) =>
-          e.title === selectedBlock?.title ? selectedBlock : e
+          e.title === selectedBlock?.title ? selectedBlock : e,
         );
 
         set(({ blocks }) => ({
@@ -87,18 +87,18 @@ export const useStore = create<BlockStoreProps>()(
           end: new Date(),
         };
         const modifiedHistories = selectedBlock?.history.map((e) =>
-          e.date === modifiedHistory.date ? modifiedHistory : e
+          e.date === modifiedHistory.date ? modifiedHistory : e,
         );
         const modifiedBlock = { ...selectedBlock, history: modifiedHistories };
         const modifiedBlocks = blocks.map((e) =>
-          e.title === modifiedBlock.title ? modifiedBlock : e
+          e.title === modifiedBlock.title ? modifiedBlock : e,
         );
-
+        //@ts-ignore
         set(() => ({
           blocks: modifiedBlocks,
         }));
       },
     }),
-    { name: "blocks" }
-  )
+    { name: "blocks" },
+  ),
 );
