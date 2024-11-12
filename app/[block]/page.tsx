@@ -18,7 +18,7 @@ export default function BlockPage({
   }
 
   const [selectedBlock, setBlock] = useState(
-    blocks.find((item) => item.title === parsedBlock)
+    blocks.find((item) => item.title === parsedBlock),
   );
   const [time, setTime] = useState(Number(selectedBlock?.duration) * 3600);
 
@@ -33,7 +33,7 @@ export default function BlockPage({
 
   // useEffect to run the countdown
   useEffect(() => {
-    let interval = null;
+    let interval: any = null;
 
     if (isActive && time > 0) {
       interval = setInterval(() => {
